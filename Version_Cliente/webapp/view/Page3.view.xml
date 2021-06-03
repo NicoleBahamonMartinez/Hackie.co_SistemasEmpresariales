@@ -1,0 +1,104 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.versionCliente.controller.Page3" xmlns="sap.m" xmlns:layout="sap.ui.layout">
+    <Page showHeader="true" title="Sección Post-Venta" showFooter="true" showNavButton="false">
+        <content>
+            <layout:BlockLayout background="Light" visible="true">
+                <layout:content>
+                    <layout:BlockLayoutRow scrollable="false">
+                        <layout:content>
+                            <layout:BlockLayoutCell width="2" title="" titleAlignment="Begin" titleLevel="Auto">
+                                <layout:content>
+                                    <Title text="{contrato_cliente/nombre}" titleStyle="H1" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
+                                    <VBox alignItems="Start" direction="Column" fitContainer="true" width="auto" renderType="Div" visible="true" height="auto">
+                                        <items>
+                                            <HBox alignItems="Start" direction="Row" fitContainer="true" width="auto" height="auto" justifyContent="Start" renderType="Div" visible="true" displayInline="false">
+                                                <items>
+                                                    <Text text="Horas contratadas:" width="136.375px" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                    <Text text="{path: 'horas_contratadas', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 }}" width="65px" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                </items>
+                                                <layoutData/>
+                                            </HBox>
+                                            <HBox alignItems="Start" direction="Row" fitContainer="true" width="auto" height="auto" justifyContent="Start" renderType="Div" visible="true" displayInline="false">
+                                                <items>
+                                                    <Text text="Plataforma a atacar:" width="135.609375px" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                    <Text text="{plataforma_atacar}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                </items>
+                                                <layoutData/>
+                                            </HBox>
+                                            <HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div" visible="true" displayInline="false">
+                                                <items>
+                                                    <Text text="Costo total:" width="136.609375px" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                    <Text text="{path: 'costo', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 }}" width="42.609375px" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                    <Text text="USD" width="65px" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                </items>
+                                                <layoutData/>
+                                            </HBox>
+                                        </items>
+                                        <layoutData/>
+                                    </VBox>
+                                    <Button text="Revisar acciones" type="Accept" icon="sap-icon://future" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" class="sapUiLargeMarginBegin" press="_onButtonPress"/>
+                                </layout:content>
+                            </layout:BlockLayoutCell>
+                            <layout:BlockLayoutCell width="1" title="Fecha Inicio Contrato" titleAlignment="Begin" titleLevel="Auto">
+                                <layout:content>
+                                    <Text text="{path: 'fecha_inicio', type: 'sap.ui.model.type.Date', formatOptions: { UTC: true, style: 'short' }}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                </layout:content>
+                            </layout:BlockLayoutCell>
+                            <layout:BlockLayoutCell width="1" title="Fecha Finalización Contrato" titleAlignment="End" titleLevel="Auto">
+                                <layout:content>
+                                    <Text text="{path: 'fecha_fin', type: 'sap.ui.model.type.Date', formatOptions: { UTC: true, style: 'short' }}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                </layout:content>
+                            </layout:BlockLayoutCell>
+                        </layout:content>
+                    </layout:BlockLayoutRow>
+                    <layout:BlockLayoutRow scrollable="false">
+                        <layout:content>
+                            <layout:BlockLayoutCell width="2" title="Descripción del trabajo realizado" titleAlignment="Begin" titleLevel="Auto">
+                                <layout:content>
+                                    <Text text="{cositas_varias/descripcion}" width="auto" maxLines="20" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                    <HBox alignItems="Stretch" direction="Row" fitContainer="false" width="523px" height="35.609375px" justifyContent="Start" renderType="Div" visible="true" displayInline="false">
+                                        <items>
+                                            <Text text="Estado:" width="65px" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                            <Text text="{estado}" width="65px" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                        </items>
+                                        <layoutData/>
+                                    </HBox>
+                                </layout:content>
+                            </layout:BlockLayoutCell>
+                            <layout:BlockLayoutCell width="2" title="Opina sobre nuestros servicios" titleAlignment="Begin" titleLevel="Auto">
+                                <layout:content>
+                                    <RatingIndicator value="0" maxValue="5" iconSize="40px" visualMode="Half" enabled="true" visible="true" editable="true" class="sapUiSmallMarginTop sapUiSmallMarginBottom sapUiLargeMarginBegin sapUiSmallMarginEnd"/>
+                                    <FeedInput showIcon="true" icon="" placeholder="Dinos cómo podemos mejorar!" enabled="true" visible="true" maxLength="0" buttonTooltip="Submit" post="_onFeedInputPost"/>
+                                </layout:content>
+                            </layout:BlockLayoutCell>
+                        </layout:content>
+                    </layout:BlockLayoutRow>
+                </layout:content>
+            </layout:BlockLayout>
+            <Panel height="auto" width="100%" headerText="Recomendaciones para mantener la plataforma" expandable="true" expanded="true" expandAnimation="true" backgroundDesign="Solid">
+                <content>
+                    <List mode="SingleSelectMaster" width="100%" headerText="" footerText="" backgroundDesign="Solid" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true" visible="true" items="{path:'recomendaciones', templateShareable:true}">
+                        <infoToolbar>
+                            <Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+                                <content>
+                                    <Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                </content>
+                            </Toolbar>
+                        </infoToolbar>
+                        <headerToolbar/>
+                        <items>
+                            <StandardListItem icon="sap-icon://notes" title="{titulo}" description="{recomendacion}" info="{mas}" infoState="Warning" type="Active" selected="false" visible="true"/>
+                        </items>
+                    </List>
+                </content>
+            </Panel>
+            <Button text="Regresar" type="Back" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" class="sapUiLargeMargin" press="_onButtonPress1"/>
+        </content>
+        <footer/>
+        <headerContent>
+            <Button text="" type="Default" icon="{= ${FclRouter>/expandIcon/img}}" iconFirst="true" width="auto" enabled="true" visible="{= ${fclButton>/visible}}" tooltip="{= ${FclRouter>/expandIcon/tooltip}}" iconDensityAware="false" class="fcl-resizeButton-js" press="_onExpandButtonPress"/>
+            <Button text="" type="Default" icon="sap-icon://decline" iconFirst="true" width="auto" enabled="true" visible="{= ${fclButton>/visible}}" tooltip="Close Column" iconDensityAware="false" class="fcl-closeButton-js" press="_onCloseButtonPress"/>
+        </headerContent>
+        <subHeader/>
+        <customHeader/>
+    </Page>
+</mvc:View>

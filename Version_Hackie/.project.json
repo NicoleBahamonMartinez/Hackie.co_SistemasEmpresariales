@@ -1,0 +1,25 @@
+{
+    "dataBinding": {
+        "/webapp/view/Page8.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/Page4.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/Page5.view.xml": {
+            "entitySet": "/contratoSet"
+        }, 
+        "/webapp/view/Page6.view.xml": {
+            "entitySet": "/accionSet"
+        }, 
+        "/webapp/view/Page7.view.xml": {
+            "entitySet": "/contratoSet"
+        }, 
+        "/webapp/view/Dialog2.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/Dialog1.view.xml": {
+            "entitySet": "/contratoSet"
+        } 
+    }
+}

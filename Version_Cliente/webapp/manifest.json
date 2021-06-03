@@ -1,0 +1,164 @@
+{
+	"_version": "1.8.0",
+	"sap.app": {
+		"_version": "1.3.0",
+		"id": "com.sap.build.standard.versionCliente",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"applicationVersion": {
+			"version": "1.2.2"
+		},
+		"ach": "ach",
+		"resources": "resources.json",
+		"dataSources": {
+			"local": {
+				"uri": "/here/goes/your/serviceUrl/local/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/metadata.xml"
+				}
+			}
+		}
+	},
+	"sap.fiori": {
+		"_version": "1.1.0",
+		"registrationIds": [],
+		"archeType": "transactional"
+	},
+	"sap.ui": {
+		"_version": "1.3.0",
+		"technology": "UI5",
+		"icons": {
+			"icon": "sap-icon://detail-view",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"_version": "1.3.0",
+		"rootView": {
+			"viewName": "com.sap.build.standard.versionCliente.view.App",
+			"type": "XML",
+			"async": false,
+			"id": "app"
+		},
+		"autoPrefixId": true,
+		"dependencies": {
+			"minUI5Version": "1.50.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.f": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"uri": "i18n/i18n.properties"
+			},
+			"": {
+				"dataSource": "local",
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"preload": true,
+				"settings": {
+					"loadMetadataAsync": false,
+					"json": true,
+					"bJSON": true,
+					"defaultBindingMode": "TwoWay",
+					"useBatch": true,
+					"refreshAfterChange": false,
+					"disableHeadRequestForToken": true
+				}
+			}
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.f.routing.Router",
+				"viewType": "XML",
+				"viewPath": "com.sap.build.standard.versionCliente.view",
+				"controlId": "idAppControl",
+				"clearTarget": false,
+				"controlAggregation": "beginColumnPages",
+				"async": false,
+				"bypassed": {
+					"target": [
+						"Page1"
+					]
+				}
+			},
+			"targets": {
+				"Page1": {
+					"controlAggregation": "beginColumnPages",
+					"viewName": "Page1",
+					"viewId": "Page1",
+					"viewLevel": 3,
+					"transition": "slide"
+				},
+				"Page2": {
+					"controlAggregation": "midColumnPages",
+					"viewName": "Page2",
+					"viewId": "Page2",
+					"viewLevel": 2,
+					"transition": "slide"
+				},
+				"Page3": {
+					"controlAggregation": "beginColumnPages",
+					"viewName": "Page3",
+					"viewId": "Page3",
+					"viewLevel": 1,
+					"transition": "slide"
+				}
+			},
+			"routes": [
+				{
+					"pattern": "Page1/:layout:",
+					"name": "Page1",
+					"target": [
+						"Page1"
+					],
+					"layout": "OneColumn"
+				},
+				{
+					"pattern": "Page3/Page2/:layout:",
+					"name": "Page2",
+					"target": [
+						"Page3",
+						"Page2"
+					],
+					"layout": "TwoColumnsMidExpanded"
+				},
+				{
+					"pattern": "Page3/:beginContext:/:layout:",
+					"name": "Page3",
+					"target": [
+						"Page3"
+					],
+					"layout": "OneColumn"
+				},
+				{
+					"pattern": "",
+					"name": "default",
+					"target": [
+						"Page1"
+					],
+					"layout": "OneColumn"
+				}
+			]
+		}
+	}
+}

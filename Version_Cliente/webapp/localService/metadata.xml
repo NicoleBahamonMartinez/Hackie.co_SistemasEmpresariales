@@ -1,0 +1,183 @@
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="1acca945c6ba5ae3157ac922" xml:lang="en" sap:schema-version="0000" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityContainer Name="1acca945c6ba5ae3157ac922_Entities" m:IsDefaultEntityContainer="true">
+                <EntitySet Name="contratoSet" EntityType="1acca945c6ba5ae3157ac922.contrato" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <AssociationSet Name="contratocontrato_clientecliente" Association="1acca945c6ba5ae3157ac922.contratocontrato_clientecliente" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="contratoSet" Role="FromRole_contratocontrato_clientecliente"/>
+                    <End EntitySet="clienteSet" Role="ToRole_contratocontrato_clientecliente"/>
+                </AssociationSet>
+                <AssociationSet Name="contratocositas_variascositas_varias" Association="1acca945c6ba5ae3157ac922.contratocositas_variascositas_varias" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="contratoSet" Role="FromRole_contratocositas_variascositas_varias"/>
+                    <End EntitySet="cositas_variasSet" Role="ToRole_contratocositas_variascositas_varias"/>
+                </AssociationSet>
+                <AssociationSet Name="contratocontrato_accionesaccion" Association="1acca945c6ba5ae3157ac922.contratocontrato_accionesaccion" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="contratoSet" Role="FromRole_contratocontrato_accionesaccion"/>
+                    <End EntitySet="accionSet" Role="ToRole_contratocontrato_accionesaccion"/>
+                </AssociationSet>
+                <AssociationSet Name="contratorecomendacionesrecomendaciones" Association="1acca945c6ba5ae3157ac922.contratorecomendacionesrecomendaciones" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="contratoSet" Role="FromRole_contratorecomendacionesrecomendaciones"/>
+                    <End EntitySet="recomendacionesSet" Role="ToRole_contratorecomendacionesrecomendaciones"/>
+                </AssociationSet>
+                <EntitySet Name="clienteSet" EntityType="1acca945c6ba5ae3157ac922.cliente" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <AssociationSet Name="clientecontratocontrato" Association="1acca945c6ba5ae3157ac922.clientecontratocontrato" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="clienteSet" Role="FromRole_clientecontratocontrato"/>
+                    <End EntitySet="contratoSet" Role="ToRole_clientecontratocontrato"/>
+                </AssociationSet>
+                <EntitySet Name="accionSet" EntityType="1acca945c6ba5ae3157ac922.accion" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <AssociationSet Name="accionRelationNameempleado" Association="1acca945c6ba5ae3157ac922.accionRelationNameempleado" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="accionSet" Role="FromRole_accionRelationNameempleado"/>
+                    <End EntitySet="empleadoSet" Role="ToRole_accionRelationNameempleado"/>
+                </AssociationSet>
+                <EntitySet Name="empleadoSet" EntityType="1acca945c6ba5ae3157ac922.empleado" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <EntitySet Name="cositas_variasSet" EntityType="1acca945c6ba5ae3157ac922.cositas_varias" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <EntitySet Name="recomendacionesSet" EntityType="1acca945c6ba5ae3157ac922.recomendaciones" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+            </EntityContainer>
+            <EntityType Name="contrato">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="horas_contratadas" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="horas_contratadas"/>
+                <Property Name="descripcion" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="descripcion"/>
+                <Property Name="plataforma_atacar" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="plataforma_atacar"/>
+                <Property Name="fecha_inicio" Type="Edm.DateTime" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:display-format="Date" sap:label="fecha_inicio"/>
+                <Property Name="fecha_fin" Type="Edm.DateTime" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:display-format="Date" sap:label="fecha_fin"/>
+                <Property Name="costo" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="costo"/>
+                <Property Name="estado" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="estado"/>
+                <Property Name="___FK_275fd637b8d4d7d8157b121a_00038" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_275fd637b8d4d7d8157b121a_00038"/>
+                <Property Name="___FK_275fd637b8d4d7d8157b121a_00040" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_275fd637b8d4d7d8157b121a_00040"/>
+                <NavigationProperty Name="contrato_cliente" Relationship="1acca945c6ba5ae3157ac922.contratocontrato_clientecliente" FromRole="FromRole_contratocontrato_clientecliente" ToRole="ToRole_contratocontrato_clientecliente"/>
+                <NavigationProperty Name="cositas_varias" Relationship="1acca945c6ba5ae3157ac922.contratocositas_variascositas_varias" FromRole="FromRole_contratocositas_variascositas_varias" ToRole="ToRole_contratocositas_variascositas_varias"/>
+                <NavigationProperty Name="contrato_acciones" Relationship="1acca945c6ba5ae3157ac922.contratocontrato_accionesaccion" FromRole="FromRole_contratocontrato_accionesaccion" ToRole="ToRole_contratocontrato_accionesaccion"/>
+                <NavigationProperty Name="recomendaciones" Relationship="1acca945c6ba5ae3157ac922.contratorecomendacionesrecomendaciones" FromRole="FromRole_contratorecomendacionesrecomendaciones" ToRole="ToRole_contratorecomendacionesrecomendaciones"/>
+            </EntityType>
+            <Association Name="contratocontrato_clientecliente">
+                <End Type="1acca945c6ba5ae3157ac922.contrato" Multiplicity="1" Role="FromRole_contratocontrato_clientecliente"/>
+                <End Type="1acca945c6ba5ae3157ac922.cliente" Multiplicity="1" Role="ToRole_contratocontrato_clientecliente"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_contratocontrato_clientecliente">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="FromRole_contratocontrato_clientecliente">
+                        <PropertyRef Name="___FK_275fd637b8d4d7d8157b121a_00038"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="contratocositas_variascositas_varias">
+                <End Type="1acca945c6ba5ae3157ac922.contrato" Multiplicity="1" Role="FromRole_contratocositas_variascositas_varias"/>
+                <End Type="1acca945c6ba5ae3157ac922.cositas_varias" Multiplicity="1" Role="ToRole_contratocositas_variascositas_varias"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_contratocositas_variascositas_varias">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="FromRole_contratocositas_variascositas_varias">
+                        <PropertyRef Name="___FK_275fd637b8d4d7d8157b121a_00040"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="contratocontrato_accionesaccion">
+                <End Type="1acca945c6ba5ae3157ac922.contrato" Multiplicity="1" Role="FromRole_contratocontrato_accionesaccion"/>
+                <End Type="1acca945c6ba5ae3157ac922.accion" Multiplicity="*" Role="ToRole_contratocontrato_accionesaccion"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_contratocontrato_accionesaccion">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_contratocontrato_accionesaccion">
+                        <PropertyRef Name="___FK_275fd637b8d4d7d8157b121a_00042"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="contratorecomendacionesrecomendaciones">
+                <End Type="1acca945c6ba5ae3157ac922.contrato" Multiplicity="1" Role="FromRole_contratorecomendacionesrecomendaciones"/>
+                <End Type="1acca945c6ba5ae3157ac922.recomendaciones" Multiplicity="*" Role="ToRole_contratorecomendacionesrecomendaciones"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_contratorecomendacionesrecomendaciones">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_contratorecomendacionesrecomendaciones">
+                        <PropertyRef Name="___FK_275fd637b8d4d7d8157b121a_00044"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityType Name="cliente">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="horas_contratadas" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="horas_contratadas"/>
+                <Property Name="mail" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="mail"/>
+                <Property Name="telefono" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="telefono"/>
+                <Property Name="fecha_creacion" Type="Edm.DateTime" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:display-format="Date" sap:label="fecha_creacion"/>
+                <Property Name="nombre" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="nombre"/>
+                <Property Name="___FK_275fd637b8d4d7d8157b121a_00046" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_275fd637b8d4d7d8157b121a_00046"/>
+                <NavigationProperty Name="contrato" Relationship="1acca945c6ba5ae3157ac922.clientecontratocontrato" FromRole="FromRole_clientecontratocontrato" ToRole="ToRole_clientecontratocontrato"/>
+            </EntityType>
+            <Association Name="clientecontratocontrato">
+                <End Type="1acca945c6ba5ae3157ac922.cliente" Multiplicity="1" Role="FromRole_clientecontratocontrato"/>
+                <End Type="1acca945c6ba5ae3157ac922.contrato" Multiplicity="1" Role="ToRole_clientecontratocontrato"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_clientecontratocontrato">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="FromRole_clientecontratocontrato">
+                        <PropertyRef Name="___FK_275fd637b8d4d7d8157b121a_00046"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityType Name="accion">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="tipo" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="tipo"/>
+                <Property Name="nombre" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="nombre"/>
+                <Property Name="descripcion" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="descripcion"/>
+                <Property Name="costo" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="costo"/>
+                <Property Name="horas_empleadas" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="horas_empleadas"/>
+                <Property Name="fecha" Type="Edm.DateTime" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:display-format="Date" sap:label="fecha"/>
+                <Property Name="___FK_275fd637b8d4d7d8157b121a_00042" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_275fd637b8d4d7d8157b121a_00042"/>
+                <Property Name="___FK_275fd637b8d4d7d8157b121a_00048" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_275fd637b8d4d7d8157b121a_00048"/>
+                <NavigationProperty Name="RelationName" Relationship="1acca945c6ba5ae3157ac922.accionRelationNameempleado" FromRole="FromRole_accionRelationNameempleado" ToRole="ToRole_accionRelationNameempleado"/>
+            </EntityType>
+            <Association Name="accionRelationNameempleado">
+                <End Type="1acca945c6ba5ae3157ac922.accion" Multiplicity="1" Role="FromRole_accionRelationNameempleado"/>
+                <End Type="1acca945c6ba5ae3157ac922.empleado" Multiplicity="1" Role="ToRole_accionRelationNameempleado"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_accionRelationNameempleado">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="FromRole_accionRelationNameempleado">
+                        <PropertyRef Name="___FK_275fd637b8d4d7d8157b121a_00048"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityType Name="empleado">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="horas_trabajadas" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="horas_trabajadas"/>
+                <Property Name="rol" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="rol"/>
+                <Property Name="nombre" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="nombre"/>
+            </EntityType>
+            <EntityType Name="cositas_varias">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="descripcion" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="descripcion"/>
+            </EntityType>
+            <EntityType Name="recomendaciones">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="titulo" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="titulo"/>
+                <Property Name="recomendacion" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="recomendacion"/>
+                <Property Name="mas" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="mas"/>
+                <Property Name="___FK_275fd637b8d4d7d8157b121a_00044" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_275fd637b8d4d7d8157b121a_00044"/>
+            </EntityType>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
